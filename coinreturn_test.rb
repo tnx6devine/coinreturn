@@ -31,5 +31,15 @@ class TestCoinReturn < Minitest::Test
 		assert_equal({:dime => 1}, change_maker_3000(change))
 	end
 
+	def test_assert_that_quarters_are_returned
+		change = 63
+		assert_equal({:quarter => 2, :dime => 1, :penny => 3}, change_maker_3000(change))
+	end
+
+	def test_assert_that_dollars_are_returned_and_all_coins
+		change = 166
+		assert_equal({:dollar => 1, :quarter => 2, :dime => 1, :nickel => 1, :penny => 1}, change_maker_3000(change))
+	end
+
 
 end
